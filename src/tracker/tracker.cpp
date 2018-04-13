@@ -16,6 +16,7 @@ Tracker::Tracker(const bool show_tracking) :
 
 void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt) {
   std::cout << "starting init!" << std::endl;
+  std::cout << image.cols << " " << image.rows << std::endl;
   image_prev_ = image;
   std::cout << "set prev image" << std::endl;
   bbox_prev_tight_ = bbox_gt;
