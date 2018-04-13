@@ -41,7 +41,7 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
   std::cout << "Converted to BBox!" << std::endl;
 
   // Set the previous image and bbox
-  tracker_->Init(image_prev, bbox_prev, regressor_);
+  tracker_->Init(image_prev, bbox_prev);
   std::cout << "Initialized the tracker!" << std::endl;
 
   //Predict bbox location

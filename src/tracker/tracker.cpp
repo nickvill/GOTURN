@@ -14,8 +14,7 @@ Tracker::Tracker(const bool show_tracking) :
 {
 }
 
-void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
-                   RegressorBase* regressor) {
+void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt) {
   image_prev_ = image;
   bbox_prev_tight_ = bbox_gt;
 

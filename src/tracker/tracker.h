@@ -19,8 +19,7 @@ public:
              BoundingBox* bbox_estimate_uncentered);
 
   // Initialize the tracker with the ground-truth bounding box of the first frame.
-  void Init(const cv::Mat& image_curr, const BoundingBox& bbox_gt,
-            RegressorBase* regressor);
+  void Init(const cv::Mat& image_curr, const BoundingBox& bbox_gt);
 
   // Initialize the tracker with the ground-truth bounding box of the first frame.
   // VOTRegion is an object for initializing the tracker when using the VOT Tracking dataset.
