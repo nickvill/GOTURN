@@ -66,6 +66,7 @@ src/train/tracker_trainer.cpp
 src/loader/video.cpp
 src/loader/video_loader.cpp
 src/native/vot.cpp
+src/tracker/tracker_handler.cpp
 
 src/helper/bounding_box.h
 src/train/example_generator.h
@@ -85,6 +86,7 @@ src/train/tracker_trainer.h
 src/loader/video.h
 src/loader/video_loader.h
 src/native/vot.h
+src/tracker/tracker_handler.h
 )
 
 # Add src to include directories.
