@@ -16,9 +16,11 @@ TrackerHandler::TrackerHandler(const std::string& deploy_proto,
   SetupTracker();
 }
 
-void TrackerHandler::InitNetwork(model_file, trained_file, gpu_id) {
+void TrackerHandler::InitNetwork(const std::string& deploy_proto, 
+                                 const std::string& caffe_model, 
+                                 const int gpu_id) {
   // Initializes the network
-  Regressor regressor(model_file, trained_file, gpu_id, false);
+  Regressor regressor(deploy_proto, caffe_model, gpu_id, false);
   regressor_(regressor);
   regressor_->Init();
 }
