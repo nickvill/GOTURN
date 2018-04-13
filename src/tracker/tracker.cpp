@@ -27,6 +27,20 @@ void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt) {
   // regressor->Init();
 }
 
+void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
+                   RegressorBase* regressor) {
+  image_prev_ = image;
+  bbox_prev_tight_ = bbox_gt;
+
+  // Predict in the current frame that the location will be approximately the same
+  // as in the previous frame.
+  // TODO - use a motion model?
+  bbox_curr_prior_tight_ = bbox_gt;
+
+  // Initialize the neural network.
+  regressor->Init();
+}
+
 void Tracker::Init(const std::string& image_curr_path, const VOTRegion& region,
                    RegressorBase* regressor) {
   // Read the given image.
