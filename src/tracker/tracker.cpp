@@ -25,7 +25,7 @@ void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
   bbox_curr_prior_tight_ = bbox_gt;
 
   // Initialize the neural network.
-  regressor->Init();
+  // regressor->Init();
 }
 
 void Tracker::Init(const std::string& image_curr_path, const VOTRegion& region,
