@@ -16,7 +16,9 @@ Tracker::Tracker(const bool show_tracking) :
 
 void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt) {
   image_prev_ = image;
+  std::cout << "set prev image" << std::endl;
   bbox_prev_tight_ = bbox_gt;
+  std::cout << "set bbox gt" << std::endl;
 
   // Predict in the current frame that the location will be approximately the same
   // as in the previous frame.
@@ -30,7 +32,9 @@ void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt) {
 void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
                    RegressorBase* regressor) {
   image_prev_ = image;
+  
   bbox_prev_tight_ = bbox_gt;
+  
 
   // Predict in the current frame that the location will be approximately the same
   // as in the previous frame.
