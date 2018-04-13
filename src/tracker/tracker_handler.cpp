@@ -9,8 +9,8 @@
 
 namespace tracker_handler {
 
-TrackerHandler::TrackerHandler(const string& deploy_proto, 
-                               const string& caffe_model, 
+TrackerHandler::TrackerHandler(const std::string& deploy_proto, 
+                               const std::string& caffe_model, 
                                const int gpu_id) {
   InitNetwork(model_file, trained_file, gpu_id);
   SetupTracker();

@@ -12,7 +12,9 @@ namespace tracker_handler {
 
 class TrackerHandler {
 public:
-  TrackerHandler(const string& deploy_proto, const string& caffe_model, const int gpu_id);
+  TrackerHandler(const std::string& deploy_proto, 
+                 const std::string& caffe_model, 
+                 const int gpu_id);
   void InitNetwork(model_file, trained_file, gpu_id);
   void SetupTracker();
   void RecoverDetection(cv::Mat& image_prev, 
