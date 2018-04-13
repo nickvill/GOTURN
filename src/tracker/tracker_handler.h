@@ -2,7 +2,7 @@
 #define TRACKER_HANDLER_H
 
 #include "network/regressor.h"
-#include "tracker/tracker.h"
+#include "tracker.h"
 #include "helper/high_res_timer.h"
 #include "helper/bounding_box.h"
 
