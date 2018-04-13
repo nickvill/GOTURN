@@ -32,6 +32,11 @@ protected:
 
   // Tracker.
   Tracker* tracker_;
+
+private:
+  const std::string& deploy_proto;
+  const std::string& caffe_model;
+  const int gpu_id;
 };
 
 }
