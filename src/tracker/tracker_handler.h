@@ -15,7 +15,9 @@ public:
   TrackerHandler(const std::string& deploy_proto, 
                  const std::string& caffe_model, 
                  const int gpu_id);
-  void InitNetwork(model_file, trained_file, gpu_id);
+  void InitNetwork(const std::string& deploy_proto, 
+                   const std::string& caffe_model, 
+                   const int gpu_id);
   void SetupTracker();
   void RecoverDetection(cv::Mat& image_prev, 
                         std::vector<float>& prev_detection,
