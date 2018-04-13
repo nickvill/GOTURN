@@ -12,8 +12,9 @@ namespace tracker_handler {
 
 class TrackerHandler {
 public:
-  TrackerHandler(RegressorBase* regressor, Tracker* tracker);
-  void InitNetwork();
+  TrackerHandler(const string& deploy_proto, const string& caffe_model, const int gpu_id);
+  void InitNetwork(model_file, trained_file, gpu_id);
+  void SetupTracker();
   void RecoverDetection(cv::Mat& image_prev, 
                         std::vector<float>& prev_detection,
                         cv::Mat& image_curr,

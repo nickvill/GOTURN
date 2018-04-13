@@ -9,16 +9,23 @@
 
 namespace tracker_handler {
 
-TrackerHandler::TrackerHandler(RegressorBase* regressor, Tracker* tracker) :
-  regressor_(regressor),
-  tracker_(tracker)
-{
-  InitNetwork();
+TrackerHandler::TrackerHandler(const string& deploy_proto, 
+                               const string& caffe_model, 
+                               const int gpu_id) {
+  InitNetwork(model_file, trained_file, gpu_id);
+  SetupTracker();
 }
 
-void TrackerHandler::InitNetwork() {
+void TrackerHandler::InitNetwork(model_file, trained_file, gpu_id) {
   // Initializes the network
+  Regressor regressor(model_file, trained_file, gpu_id, false);
+  regressor_(regressor);
   regressor_->Init();
+}
+
+void TrackerHandler::SetupTracker() {
+  Tracker tracker(false);
+  tracker_(tracker);
 }
 
 void TrackerHandler::RecoverDetection(cv::Mat& image_prev, 
