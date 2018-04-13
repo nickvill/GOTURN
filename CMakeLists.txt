@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(GOTURN)
+add_definitions(-std=c++11)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
@@ -20,21 +21,23 @@ message("Open CV version is ${OpenCV_VERSION}")
 add_definitions(${Opencv_DEFINITIONS})
 message("Opencv_DEFINITIONS is ${Opencv_DEFINITIONS}")
 
-find_package(CUDA REQUIRED)
+#find_package(CUDA REQUIRED)
 # Note: If can't find CUDA, please uncomment the below line and set the path manually
 # set(CUDA_INCLUDE_DIRS /path_to_cuda/include)
-include_directories(${CUDA_INCLUDE_DIRS})
-message("CUDA_INCLUDE_DIRS is ${CUDA_INCLUDE_DIRS}")
+#include_directories(${CUDA_INCLUDE_DIRS})
+#message("CUDA_INCLUDE_DIRS is ${CUDA_INCLUDE_DIRS}")
 
 
 find_package(Caffe REQUIRED)
 # If Caffe not found, configure line 5 of cmake/Modules/FindCaffe.cmake
 # If that fails uncomment the two lines below and set paths manually
-# set(Caffe_DIR /path_to_caffe/build/install)
-# set(Caffe_INCLUDE_DIRS /path_to_caffe/build/install/include)
+set(Caffe_DIR /home/nick/caffe/build/)
+set(Caffe_INCLUDE_DIRS /home/nick/caffe/include)
+set(Caffe_LIBRARIES /home/nick/caffe/build/lib/libcaffe.so)
 include_directories(${Caffe_INCLUDE_DIRS})
+#include_directories(/home/nick/caffe/.build_release/src)
 # Uncomment for CPU only:
-# set(Caffe_DEFINITIONS -DCPU_ONLY)
+set(Caffe_DEFINITIONS -DCPU_ONLY)
 add_definitions(${Caffe_DEFINITIONS})
 message("Caffe_DEFINITIONS is ${Caffe_DEFINITIONS}")
 message("Caffe_DIR is ${Caffe_DIR}")
@@ -126,4 +129,5 @@ add_executable (show_alov src/visualizer/show_alov.cpp)
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${Boost_LIBRARIES})
 target_link_libraries (show_alov ${PROJECT_NAME})
 
+target_link_libraries(${PROJECT_NAME} /home/nick/GOTURN/src/native/trax/build/libtrax.so)
 

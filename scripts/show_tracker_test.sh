@@ -18,6 +18,6 @@ PAUSE_VAL=1
 
 VIDEOS_FOLDER=$1
 DEPLOY=nets/tracker.prototxt
-CAFFE_MODEL=nets/models/pretrained_model/tracker.caffemodel
+CAFFE_MODEL=nets/models/pretrained_model/tracker_new.caffemodel
 
 build/show_tracker_vot $DEPLOY $CAFFE_MODEL $VIDEOS_FOLDER $GPU_ID $START_VIDEO_NUM $PAUSE_VAL
