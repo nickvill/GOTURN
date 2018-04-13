@@ -18,7 +18,7 @@ TrackerHandler::TrackerHandler(RegressorBase* regressor, Tracker* tracker) :
 
 void TrackerHandler::InitNetwork() {
   // Initializes the network
-  regressor->Init();
+  regressor_->Init();
 }
 
 void TrackerHandler::RecoverDetection(cv::Mat& image_prev, 
