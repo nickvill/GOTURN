@@ -21,13 +21,13 @@ void TrackerHandler::InitNetwork(const std::string& deploy_proto,
                                  const int gpu_id) {
   // Initializes the network
   Regressor regressor(deploy_proto, caffe_model, gpu_id, false);
-  regressor_(regressor);
+  regressor_ = &regressor;
   regressor_->Init();
 }
 
 void TrackerHandler::SetupTracker() {
   Tracker tracker(false);
-  tracker_(tracker);
+  tracker_ = &tracker;
 }
 
 void TrackerHandler::RecoverDetection(cv::Mat& image_prev, 
