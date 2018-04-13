@@ -38,14 +38,18 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
   // Turn detection into a bounding box
   BoundingBox bbox_prev;
   DetectionToBoundingBox(prev_detection, bbox_prev);
+  std::cout << "Converted to BBox!" << std::endl;
 
   // Set the previous image and bbox
   tracker_->Init(image_prev, bbox_prev, regressor_);
+  std::cout << "Initialized the tracker!" << std::endl;
 
   //Predict bbox location
   BoundingBox bbox_estimate_uncentered;
   tracker_->Track(image_curr, regressor_, &bbox_estimate_uncentered);
+  std::cout << "Got track estimate!" << std::endl;
   BoundingBoxToDetection(new_detection, bbox_estimate_uncentered);
+  std::cout << "Converted BBox to Detection!" << std::endl;
 }
 
 void TrackerHandler::DetectionToBoundingBox(std::vector<float>& prev_detection,
