@@ -1,3 +1,5 @@
+// Adapted from tracker_manager.h
+
 #ifndef TRACKER_HANDLER_H
 #define TRACKER_HANDLER_H
 
@@ -20,6 +22,13 @@ public:
                               BoundingBox& bbox_prev);
   void BoundingBoxToDetection(std::vector<float>& new_detection,
                               BoundingBox& bbox_estimate_uncentered);
+
+protected:
+  // Neural network tracker.
+  RegressorBase* regressor_;
+
+  // Tracker.
+  Tracker* tracker_;
 };
 
 }

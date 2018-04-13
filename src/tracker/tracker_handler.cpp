@@ -1,3 +1,5 @@
+// Adapted from tracker_manager.cpp
+
 #include "tracker_handler.h"
 
 #include <string>
