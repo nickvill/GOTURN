@@ -1,7 +1,7 @@
 #include "tracker_manager.h"
 
 #include <string>
-
+#include "tracker/tracker.h"
 #include "helper/helper.h"
 #include "train/tracker_trainer.h"
 

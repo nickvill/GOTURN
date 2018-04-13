@@ -52,10 +52,10 @@ void Regressor::SetupNetwork(const string& deploy_proto,
 
   if (do_train) {
     printf("Setting phase to train\n");
-    net_.reset(new Net<float>(deploy_proto, caffe::TRAIN));
+    net_.reset(new Net<float>(deploy_proto, caffe::TRAIN, caffe::Caffe::GetDefaultDevice()));
   } else {
     printf("Setting phase to test\n");
-    net_.reset(new Net<float>(deploy_proto, caffe::TEST));
+    net_.reset(new Net<float>(deploy_proto, caffe::TEST, caffe::Caffe::GetDefaultDevice()));
   }
 
   if (caffe_model != "NONE") {

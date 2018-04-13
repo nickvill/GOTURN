@@ -5,7 +5,7 @@
 #define VOT_RECTANGLE
 #include "native/vot.h"
 
-#include "tracker/tracker.h"
+#include "../tracker/tracker.h"
 #include "network/regressor_train.h"
 
 //using std::string;

@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <caffe/caffe.hpp>
+#include <caffe/common.hpp>
 
 #include "example_generator.h"
 #include "helper/helper.h"
@@ -116,7 +117,7 @@ int main (int argc, char *argv[]) {
   const int gpu_id          = atoi(argv[arg_index++]);
   const int random_seed          = atoi(argv[arg_index++]);
 
-  caffe::Caffe::set_random_seed(random_seed);
+  caffe::Caffe::set_random_seed(random_seed, caffe::Caffe::GetDefaultDevice());
   printf("Using random seed: %d\n", random_seed);
 
 #ifdef CPU_ONLY

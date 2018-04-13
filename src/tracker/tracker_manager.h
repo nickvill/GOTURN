@@ -2,7 +2,7 @@
 #define TRACKER_MANAGER_H
 
 #include "network/regressor.h"
-#include "tracker/tracker.h"
+#include "tracker.h"
 #include "loader/video.h"
 #include "helper/high_res_timer.h"
 

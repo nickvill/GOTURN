@@ -8,7 +8,7 @@ if [ -z "$1" ]
 fi
 
 # Choose which GPU the tracker runs on
-GPU_ID=0
+GPU_ID=1
 
 VIDEOS_FOLDER=$1
 

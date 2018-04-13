@@ -8,6 +8,7 @@
 #include "helper/bounding_box.h"
 #include "tracker/tracker.h"
 #include "network/regressor_train_base.h"
+#include "train/example_generator.h"
 
 class TrackerTrainer
 {

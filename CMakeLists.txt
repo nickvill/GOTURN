@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(GOTURN)
+add_definitions(-std=c++11)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
@@ -16,25 +17,28 @@ find_package(TinyXML REQUIRED)
 find_package( OpenCV REQUIRED )
 message("Open CV version is ${OpenCV_VERSION}")
 # Uncomment for no display (e.g. AWS instance)
-# set(Opencv_DEFINITIONS -DNO_DISPLAY)
+set(Opencv_DEFINITIONS -DNO_DISPLAY)
 add_definitions(${Opencv_DEFINITIONS})
 message("Opencv_DEFINITIONS is ${Opencv_DEFINITIONS}")
 
-find_package(CUDA REQUIRED)
+#find_package(CUDA REQUIRED)
 # Note: If can't find CUDA, please uncomment the below line and set the path manually
 # set(CUDA_INCLUDE_DIRS /path_to_cuda/include)
-include_directories(${CUDA_INCLUDE_DIRS})
-message("CUDA_INCLUDE_DIRS is ${CUDA_INCLUDE_DIRS}")
+#include_directories(${CUDA_INCLUDE_DIRS})
+#message("CUDA_INCLUDE_DIRS is ${CUDA_INCLUDE_DIRS}")
 
 
-find_package(Caffe REQUIRED)
+#find_package(Caffe REQUIRED)
 # If Caffe not found, configure line 5 of cmake/Modules/FindCaffe.cmake
 # If that fails uncomment the two lines below and set paths manually
-# set(Caffe_DIR /path_to_caffe/build/install)
-# set(Caffe_INCLUDE_DIRS /path_to_caffe/build/install/include)
+set(Caffe_DIR /home/fla/fla-gtsc/fla_root/)
+set(Caffe_INCLUDE_DIRS /home/fla/fla-gtsc/fla_root/caffe/build/include/)
+#set(Caffe_INCLUDE_DIRS /home/fla/fla-gtsc/fla_root/usr/include)
+set(Caffe_LIBRARIES /home/fla/fla-gtsc/fla_root/usr/lib/libcaffe.so)
 include_directories(${Caffe_INCLUDE_DIRS})
+include_directories(/home/fla/fla-gtsc/fla_root/usr/include)
 # Uncomment for CPU only:
-# set(Caffe_DEFINITIONS -DCPU_ONLY)
+#set(Caffe_DEFINITIONS -DCPU_ONLY)
 add_definitions(${Caffe_DEFINITIONS})
 message("Caffe_DEFINITIONS is ${Caffe_DEFINITIONS}")
 message("Caffe_DIR is ${Caffe_DIR}")
@@ -96,7 +100,7 @@ add_executable (test_tracker_vot src/test/test_tracker_vot.cpp)
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${Caffe_LIBRARIES} ${GLOG_LIB})
 target_link_libraries (test_tracker_vot ${PROJECT_NAME})
 # Note: If can't find trax, please download trax and build it, then uncomment the below line and set the path manually
-# target_link_libraries(${PROJECT_NAME} /path_to_trax/build/libtrax.so)
+target_link_libraries(${PROJECT_NAME} /home/fla/GOTURN/src/native/trax/build/libtrax.so)
 
 add_executable (test_tracker_alov src/test/test_tracker_alov.cpp)
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${Caffe_LIBRARIES} ${GLOG_LIB})

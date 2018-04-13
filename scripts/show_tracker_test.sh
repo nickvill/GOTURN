@@ -8,7 +8,7 @@ if [ -z "$1" ]
 fi
 
 # Choose which GPU the tracker runs on
-GPU_ID=0
+GPU_ID=1
 
 # Choose which video from the test set to start displaying
 START_VIDEO_NUM=0
