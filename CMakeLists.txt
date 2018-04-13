@@ -47,7 +47,7 @@ message("Caffe_INCLUDE_DIRS is ${Caffe_INCLUDE_DIRS}")
 
 set(GLOG_LIB glog)
 
-add_library (${PROJECT_NAME}
+add_library (${PROJECT_NAME} SHARED
 src/helper/bounding_box.cpp
 src/train/example_generator.cpp
 src/helper/helper.cpp
