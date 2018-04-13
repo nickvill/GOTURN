@@ -3,9 +3,6 @@
 #include "tracker_handler.h"
 
 #include <string>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 
 #include "helper/helper.h"
 #include "train/tracker_trainer.h"
@@ -44,9 +41,7 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
   std::cout << "Converted to BBox!" << std::endl;
 
   // Set the previous image and bbox
-  cv::Mat image_prev_res;
-  cv::resize(image_prev, image_prev_res, cv::Size(227,227));
-  tracker_->Init(image_prev_res, bbox_prev);
+  tracker_->Init(image_prev, bbox_prev);
   std::cout << "Initialized the tracker!" << std::endl;
 
   //Predict bbox location

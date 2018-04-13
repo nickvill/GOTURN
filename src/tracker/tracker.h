@@ -1,5 +1,5 @@
-//#ifndef TRACKER_H
-//#define TRACKER_H
+#ifndef TRACKER_H
+#define TRACKER_H
 
 #include <opencv/cv.h>
 #include <opencv2/core/core.hpp>
@@ -48,4 +48,4 @@ private:
   bool show_tracking_;
 };
 
-//#endif // TRACKER_H
+#endif // TRACKER_H
