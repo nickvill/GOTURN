@@ -31,7 +31,7 @@ void TrackerHandler::SetupTracker() {
   tracker_ = &tracker;
 }
 
-void TrackerHandler::RecoverDetection(cv::Mat& image_prev, 
+void TrackerHandler::RecoverDetection(const cv::Mat& image_prev, 
                                       std::vector<float>& prev_detection,
                                       cv::Mat& image_curr,
                                       std::vector<float>& new_detection) {
