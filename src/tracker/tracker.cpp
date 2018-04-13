@@ -36,7 +36,7 @@ void Tracker::Init(const std::string& image_curr_path, const VOTRegion& region,
   BoundingBox bbox_gt(region);
 
   // Initialize the tracker.
-  Init(image, bbox_gt, regressor);
+  Init(image, bbox_gt);
 }
 
 void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
