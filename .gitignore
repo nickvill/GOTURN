@@ -4,3 +4,5 @@
 build/
 nets/models/
 nets/tracker_output/
+data/
+src/native/trax/
