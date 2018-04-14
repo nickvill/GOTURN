@@ -36,7 +36,7 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
                                       cv::Mat& image_curr,
                                       std::vector<float>& new_detection) {
   // Turn detection into a bounding box
-  BoundingBox bbox_prev;
+  BoundingBox& bbox_prev;
   DetectionToBoundingBox(prev_detection, bbox_prev);
   std::cout << "Converted to BBox!" << std::endl;
 
