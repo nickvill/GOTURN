@@ -36,7 +36,7 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
                                       cv::Mat& image_curr,
                                       std::vector<float>& new_detection) {
   // Turn detection into a bounding box
-  BoundingBox& bbox_prev;
+  BoundingBox bbox_prev;
   DetectionToBoundingBox(prev_detection, bbox_prev);
   std::cout << "Converted to BBox!" << std::endl;
 
@@ -54,10 +54,10 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
 
 void TrackerHandler::DetectionToBoundingBox(std::vector<float>& prev_detection,
                                             BoundingBox& bbox_prev) {
-  bbox_prev.x1_ = prev_detection[3];
-  bbox_prev.y1_ = prev_detection[4];
-  bbox_prev.x2_ = prev_detection[5];
-  bbox_prev.y2_ = prev_detection[6];
+  bbox_prev.x1_ = static_cast<double>(prev_detection[3]);
+  bbox_prev.y1_ = static_cast<double>(prev_detection[4]);
+  bbox_prev.x2_ = static_cast<double>(prev_detection[5]);
+  bbox_prev.y2_ = static_cast<double>(prev_detection[6]);
 }
 
 void TrackerHandler::BoundingBoxToDetection(std::vector<float>& new_detection,
@@ -66,10 +66,10 @@ void TrackerHandler::BoundingBoxToDetection(std::vector<float>& new_detection,
     new_detection = {0,0,0,0,0,0,0};
   }
 
-  new_detection[3] = bbox_estimate_uncentered.x1_;
-  new_detection[4] = bbox_estimate_uncentered.y1_;
-  new_detection[5] = bbox_estimate_uncentered.x2_;
-  new_detection[6] = bbox_estimate_uncentered.y2_;
+  new_detection[3] = static_cast<float>(bbox_estimate_uncentered.x1_);
+  new_detection[4] = static_cast<float>(bbox_estimate_uncentered.y1_);
+  new_detection[5] = static_cast<float>(bbox_estimate_uncentered.x2_);
+  new_detection[6] = static_cast<float>(bbox_estimate_uncentered.y2_);
 }
 
 } // namespace tracker_handler
