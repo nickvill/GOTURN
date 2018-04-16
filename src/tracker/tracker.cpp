@@ -18,10 +18,11 @@ void Tracker::Init_ObjDet(const cv::Mat& image, const BoundingBox& bbox_gt) {
   std::cout << "starting init!" << std::endl;
   std::cout << typeid(image).name() << std::endl;
   std::cout << image.cols << " " << image.rows << std::endl;
-  image_prev_ = image;
-  std::cout << "set prev image" << std::endl;
   bbox_prev_tight_ = bbox_gt;
   std::cout << "set bbox gt" << std::endl;
+  image_prev_ = image;
+  std::cout << "set prev image" << std::endl;
+  
 
   // Predict in the current frame that the location will be approximately the same
   // as in the previous frame.
