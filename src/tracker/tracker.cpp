@@ -14,14 +14,14 @@ Tracker::Tracker(const bool show_tracking) :
 {
 }
 
-void Tracker::Init_ObjDet(cv::Mat& image, const BoundingBox& bbox_gt) {
+void Tracker::Init_ObjDet(cv::Mat& img, const BoundingBox& bbox_gt) {
   std::cout << "starting init!" << std::endl;
-  std::cout << typeid(image).name() << std::endl;
-  std::cout << image.cols << " " << image.rows << std::endl;
+  std::cout << typeid(img).name() << std::endl;
+  std::cout << img.cols << " " << img.rows << std::endl;
   bbox_prev_tight_ = bbox_gt;
   std::cout << "set bbox gt" << std::endl;
   std::cout << "img prev type " << typeid(image_prev_).name() << std::endl;
-  image_prev_ = image.clone();
+  image_prev_ = img.clone();
   std::cout << "set prev image" << std::endl;
   
 
