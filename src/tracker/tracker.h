@@ -38,7 +38,7 @@ public:
   BoundingBox bbox_prev_tight_;
 
   // Full previous image.
-  cv::Mat image_prev_(240,320,CV_32F,0.0);
+  cv::Mat image_prev_;
 
 private:
   // Show the tracking output, for debugging.
