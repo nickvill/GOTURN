@@ -24,7 +24,7 @@ void Tracker::Init_ObjDet(const cv::Mat img, const BoundingBox& bbox_gt) {
   cv::Mat whatevs;
   whatevs = img.clone();
   std::cout << "set whatevs" << std::endl;
-  image_prev_ = &whatevs;
+  image_prev_ = whatevs;
   std::cout << "set prev image" << std::endl;
   
 
@@ -93,7 +93,7 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
   }
 
   // Save the image.
-  image_prev_ = &image_curr;
+  image_prev_ = image_curr;
 
   // Save the current estimate as the location of the target.
   bbox_prev_tight_ = *bbox_estimate_uncentered;
