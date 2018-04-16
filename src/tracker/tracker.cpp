@@ -24,7 +24,7 @@ void Tracker::Init_ObjDet(const cv::Mat img, const BoundingBox& bbox_gt) {
   cv::Mat whatevs;
   whatevs = img.clone();
   std::cout << "set whatevs" << std::endl;
-  image_prev_ = whatevs;
+  image_prev_ = &whatevs;
   std::cout << "set prev image" << std::endl;
   
 
@@ -69,7 +69,7 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
                     BoundingBox* bbox_estimate_uncentered) {
   // Get target from previous image.
   cv::Mat target_pad;
-  CropPadImage(bbox_prev_tight_, image_prev_, &target_pad);
+  CropPadImage(bbox_prev_tight_, &image_prev_, &target_pad);
 
   // Crop the current image based on predicted prior location of target.
   cv::Mat curr_search_region;

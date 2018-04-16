@@ -53,7 +53,7 @@ private:
   BoundingBox bbox_prev_tight_;
 
   // Full previous image.
-  cv::Mat image_prev_;
+  cv::Mat* image_prev_;
 
   // Whether to visualize the tracking results
   bool show_tracking_;
