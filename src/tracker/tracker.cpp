@@ -14,7 +14,7 @@ Tracker::Tracker(const bool show_tracking) :
 {
 }
 
-void Tracker::Init_ObjDet(const cv::Mat& image, const BoundingBox& bbox_gt) {
+void Tracker::Init_ObjDet(cv::Mat image, const BoundingBox& bbox_gt) {
   std::cout << "starting init!" << std::endl;
   std::cout << typeid(image).name() << std::endl;
   std::cout << image.cols << " " << image.rows << std::endl;
