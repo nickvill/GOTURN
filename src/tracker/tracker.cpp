@@ -93,7 +93,7 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
   }
 
   // Save the image.
-  image_prev_ = image_curr;
+  image_prev_ = &image_curr;
 
   // Save the current estimate as the location of the target.
   bbox_prev_tight_ = *bbox_estimate_uncentered;
