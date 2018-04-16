@@ -21,7 +21,7 @@ void Tracker::Init_ObjDet(cv::Mat& image, const BoundingBox& bbox_gt) {
   bbox_prev_tight_ = bbox_gt;
   std::cout << "set bbox gt" << std::endl;
   std::cout << "img prev type " << typeid(image_prev_).name() << std::endl;
-  image_prev_ = image;
+  image_prev_ = image.clone();
   std::cout << "set prev image" << std::endl;
   
 
