@@ -10,8 +10,7 @@
 #include "helper/image_proc.h"
 
 Tracker::Tracker(const bool show_tracking) :
-  show_tracking_(show_tracking),
-  image_prev_(240,320,CV_32F,0.0)
+  show_tracking_(show_tracking)
 {
 }
 
