@@ -14,7 +14,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 find_package(TinyXML REQUIRED)
 
 
-find_package( OpenCV REQUIRED )
+find_package( OpenCV 3 REQUIRED )
 message("Open CV version is ${OpenCV_VERSION}")
 # Uncomment for no display (e.g. AWS instance)
 set(Opencv_DEFINITIONS -DNO_DISPLAY)
