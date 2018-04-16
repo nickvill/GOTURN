@@ -27,8 +27,8 @@ void TrackerHandler::InitNetwork(const std::string& deploy_proto,
 }
 
 void TrackerHandler::SetupTracker() {
-  Tracker tracker(false);
-  tracker_ = &tracker;
+  // Tracker tracker(false);
+  tracker_(new Tracker(false));
 }
 
 void TrackerHandler::RecoverDetection(cv::Mat& image_prev, 
