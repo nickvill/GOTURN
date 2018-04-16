@@ -20,7 +20,7 @@ public:
              BoundingBox* bbox_estimate_uncentered);
 
   // Initialize the tracker with the ground-truth bounding box of the first frame.
-  void Init_ObjDet(cv::Mat image, const BoundingBox& bbox_gt);
+  void Init_ObjDet(cv::Mat& image, const BoundingBox& bbox_gt);
 
   void Init(const cv::Mat& image, const BoundingBox& bbox_gt, RegressorBase* regressor);
 
