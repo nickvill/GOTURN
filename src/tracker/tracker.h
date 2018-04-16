@@ -32,21 +32,6 @@ public:
   // Predicted prior location of the target object in the current image.
   // This should be a tight (high-confidence) prior prediction area.  We will
   // add padding to this region.
-  BoundingBox bbox_curr_prior_tight_;
-
-  // Estimated previous location of the target object.
-  BoundingBox bbox_prev_tight_;
-
-  // Full previous image.
-  cv::Mat image_prev_;
-
-private:
-  // Show the tracking output, for debugging.
-  void ShowTracking(const cv::Mat& target_pad, const cv::Mat& curr_search_region, const BoundingBox& bbox_estimate) const;
-
-  // // Predicted prior location of the target object in the current image.
-  // // This should be a tight (high-confidence) prior prediction area.  We will
-  // // add padding to this region.
   // BoundingBox bbox_curr_prior_tight_;
 
   // // Estimated previous location of the target object.
@@ -54,6 +39,21 @@ private:
 
   // // Full previous image.
   // cv::Mat image_prev_;
+
+private:
+  // Show the tracking output, for debugging.
+  void ShowTracking(const cv::Mat& target_pad, const cv::Mat& curr_search_region, const BoundingBox& bbox_estimate) const;
+
+  // Predicted prior location of the target object in the current image.
+  // This should be a tight (high-confidence) prior prediction area.  We will
+  // add padding to this region.
+  BoundingBox bbox_curr_prior_tight_;
+
+  // Estimated previous location of the target object.
+  BoundingBox bbox_prev_tight_;
+
+  // Full previous image.
+  cv::Mat image_prev_;
 
   // Whether to visualize the tracking results
   bool show_tracking_;
