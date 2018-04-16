@@ -16,15 +16,9 @@ Tracker::Tracker(const bool show_tracking) :
 
 void Tracker::Init_ObjDet(const cv::Mat img, const BoundingBox& bbox_gt) {
   std::cout << "starting init!" << std::endl;
-  std::cout << typeid(img).name() << std::endl;
-  std::cout << img.cols << " " << img.rows << std::endl;
   bbox_prev_tight_ = bbox_gt;
   std::cout << "set bbox gt" << std::endl;
-  std::cout << "img prev type " << typeid(image_prev_).name() << std::endl;
-  cv::Mat whatevs;
-  whatevs = img.clone();
-  std::cout << "set whatevs" << std::endl;
-  image_prev_ = whatevs;
+  image_prev_ = img;
   std::cout << "set prev image" << std::endl;
   
 
@@ -70,16 +64,19 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
   // Get target from previous image.
   cv::Mat target_pad;
   CropPadImage(bbox_prev_tight_, image_prev_, &target_pad);
+  std::cout << "Cropped and Padded Prev Image!" << std::endl;
 
   // Crop the current image based on predicted prior location of target.
   cv::Mat curr_search_region;
   BoundingBox search_location;
   double edge_spacing_x, edge_spacing_y;
   CropPadImage(bbox_curr_prior_tight_, image_curr, &curr_search_region, &search_location, &edge_spacing_x, &edge_spacing_y);
+  std::cout << "Cropped and Padded Current Image!" << std::endl;
 
   // Estimate the bounding box location of the target, centered and scaled relative to the cropped image.
   BoundingBox bbox_estimate;
   regressor->Regress(image_curr, curr_search_region, target_pad, &bbox_estimate);
+  std::cout << "Got Raw Estimate!" << std::endl;
 
   // Unscale the estimation to the real image size.
   BoundingBox bbox_estimate_unscaled;

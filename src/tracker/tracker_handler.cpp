@@ -21,8 +21,8 @@ void TrackerHandler::InitNetwork(const std::string& deploy_proto,
                                  const int gpu_id) {
   // Initializes the network
   // ::google::InitGoogleLogging("1");
-  Regressor regressor(deploy_proto, caffe_model, gpu_id, false);
-  regressor_ = &regressor;
+  // Regressor regressor(deploy_proto, caffe_model, gpu_id, false);
+  regressor_ = new Regressor(deploy_proto, caffe_model, gpu_id, false);
   regressor_->Init();
 }
 
