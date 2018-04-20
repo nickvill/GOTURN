@@ -49,15 +49,16 @@ void TrackerHandler::RecoverDetection(cv::Mat& image_prev,
   tracker_->Track(image_curr, regressor_, &bbox_estimate_uncentered);
   std::cout << "Got track estimate!" << std::endl;
   BoundingBoxToDetection(new_detection, bbox_estimate_uncentered);
+  new_detection[1] = prev_detection[1];
   // std::cout << "Converted BBox to Detection!" << std::endl;
 }
 
 void TrackerHandler::DetectionToBoundingBox(std::vector<float>& prev_detection,
                                             BoundingBox& bbox_prev) {
-  bbox_prev.x1_ = static_cast<double>(prev_detection[3]) - 1;
-  bbox_prev.y1_ = static_cast<double>(prev_detection[4]) - 1;
-  bbox_prev.x2_ = static_cast<double>(prev_detection[5]) - 1;
-  bbox_prev.y2_ = static_cast<double>(prev_detection[6]) - 1;
+  bbox_prev.x1_ = static_cast<double>(prev_detection[3]);
+  bbox_prev.y1_ = static_cast<double>(prev_detection[4]);
+  bbox_prev.x2_ = static_cast<double>(prev_detection[5]);
+  bbox_prev.y2_ = static_cast<double>(prev_detection[6]);
 }
 
 void TrackerHandler::BoundingBoxToDetection(std::vector<float>& new_detection,
