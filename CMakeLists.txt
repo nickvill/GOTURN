@@ -35,7 +35,7 @@ set(Caffe_DIR /home/nick/caffe/build/)
 set(Caffe_INCLUDE_DIRS /home/nick/caffe/include)
 set(Caffe_LIBRARIES /home/nick/caffe/build/lib/libcaffe.so)
 include_directories(${Caffe_INCLUDE_DIRS})
-#include_directories(/home/nick/caffe/.build_release/src)
+include_directories(/home/nick/caffe/.build_release/src)
 # Uncomment for CPU only:
 set(Caffe_DEFINITIONS -DCPU_ONLY)
 add_definitions(${Caffe_DEFINITIONS})
@@ -46,7 +46,7 @@ message("Caffe_INCLUDE_DIRS is ${Caffe_INCLUDE_DIRS}")
 
 set(GLOG_LIB glog)
 
-add_library (${PROJECT_NAME}
+add_library (${PROJECT_NAME} SHARED
 src/helper/bounding_box.cpp
 src/train/example_generator.cpp
 src/helper/helper.cpp

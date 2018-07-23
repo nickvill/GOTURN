@@ -6,3 +6,4 @@ nets/models/
 nets/tracker_output/
 data/
 src/native/trax/
+*.mp4
